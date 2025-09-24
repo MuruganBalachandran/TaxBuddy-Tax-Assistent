@@ -1,4 +1,10 @@
 module.exports = {
+  devServer: {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+    allowedHosts: "auto",
+  },
   webpack: {
     configure: {
       resolve: {

@@ -1,4 +1,6 @@
-const LYZR_API_KEY = 'sk-default-MocEmPJWyTmFsDOBdse7UIP3dIanvGaP';
+const LYZR_API_KEY = process.env.REACT_APP_LYZR_API_KEY;
+const LYZR_USER_ID = process.env.REACT_APP_LYZR_USER_ID;
+const LYZR_AGENT_ID = process.env.REACT_APP_LYZR_AGENT_ID;
 const LYZR_API_URL = 'https://agent-prod.studio.lyzr.ai/v3/inference/chat/';
 
 export const createLyzrCompletion = async (prompt, pdfContent) => {
@@ -10,9 +12,9 @@ export const createLyzrCompletion = async (prompt, pdfContent) => {
         'x-api-key': LYZR_API_KEY
       },
       body: JSON.stringify({
-        user_id: "ganeshponnar005@gmail.com",
-        agent_id: "67c0b5e50606a0f240480445",
-        session_id: "67c0b5e50606a0f240480445",
+        user_id: LYZR_USER_ID,
+        agent_id: LYZR_AGENT_ID,
+        session_id: LYZR_AGENT_ID,
         message: `Context from PDF: ${pdfContent}\n\nQuestion: ${prompt}`
       })
     });
